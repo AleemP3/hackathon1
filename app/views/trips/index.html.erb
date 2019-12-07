@@ -1,2 +1,8 @@
-<h1>Trips#index</h1>
-<p>Find me in app/views/trips/index.html.erb</p>
+<h1> Trips </h1>
+<%= link_to 'Add New Trip', new_trip_path %>
+<hr />
+
+<% @trips.each do |t| %>
+<%= link_to t.name , trip_path(t) %>
+
+<% end %> 
