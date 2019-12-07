@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Trips#show</h1>
 <p>Find me in app/views/trips/show.html.erb</p>
 
@@ -9,3 +10,15 @@
 
 
 
+=======
+<%= link_to '|Back|', trips_path %>
+<%= link_to '|Edit|', edit_trip_path(@trip) %>
+<%= link_to '|Delete|', trip_path(@trip), method: :delete %>
+<h1> <%= @trip.name %> </h1>
+<h3> <%= @trip.description %>
+<hr />
+
+<%=link_to "|add location|", new_trip_location_path(@trip)%>
+
+<%=link_to "|View location|", trip_locations_path(@trip)%>
+>>>>>>> 92299028dcb6f15993e6eaf29e753da7782a81a7
