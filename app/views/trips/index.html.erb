@@ -2,7 +2,28 @@
 <%= link_to 'Add New Trip', new_trip_path %>
 <hr />
 
-<% @trips.each do |t| %>
-<%= link_to t.name , trip_path(t) %>
 
-<% end %> 
+
+
+
+  <br/>
+  <br/>
+<div class="ui grid">
+<% @trips.each do |t| %>
+<div class="sixteen wide mobile eight wide tablet four wide computer column">
+  <div class="ui card"> 
+  
+    <div class="content">
+      <div class="header"> <%= link_to t.name , trip_path(t) %></div>
+      <hr />
+      <div class="description">
+       <%= link_to t.description , trip_path(t) %>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    
+     <% end %> 
+  </div>
+
+ 
