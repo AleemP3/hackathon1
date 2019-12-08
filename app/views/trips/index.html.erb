@@ -18,10 +18,35 @@
    <% end %>
 </div>
 
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<div class="Mymap">
+    <div id="map"></div>
+</div>    
+<!-- got my API key. -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
+</script>
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCH17EUl7Az-gLaFBoOQChN5jF0dUIN0&callback=initMap">
+</script>
+
+
+<script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru--- cant seem to change it. SLC=] is at 40.7608° N, 111.8910° W
+  var uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+</script>
 
 
 
 
-
-
- 
