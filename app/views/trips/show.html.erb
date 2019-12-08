@@ -1,32 +1,86 @@
 <%= link_to '|Back|', trips_path %>
-<%= link_to '|Edit|', edit_trip_path(@trip) %>
-<%= link_to '|Delete|', trip_path(@trip), method: :delete %>
 
 <h3> <%= @trip.name %>
 <hr />
 
+<button class="ui button">
+  <%=link_to "Add Location", new_trip_location_path(@trip)%>
+</button>
 
+<button class="ui button">
+  <%=link_to "Delete", trip_path(@trip), method: :delete %> 
+</button>
+<button class="ui button">
+<%= link_to 'Edit', edit_trip_path(@trip) %>
+</button>
+
+
+<br/>
+<br/>
 
 <div class="ui grid">
   <div class="four wide column">
     <div class="ui vertical fluid tabular menu">
-      <a class="active item">
+      <a class="description-tab active item">
         Description
       </a>
-      
+      <a class="location-tab item">
+        Locations
       </a>
+      
     </div>
   </div>
   <div class="twelve wide stretched column">
-    <div class="ui segment">
+    <div class="description-segment ui segment">
       <%= @trip.description %>
+    </div>
+    <div class="location-segment ui segment hidden">
+      <% @trip.locations.each do |l| %>
+        <li><%= l.name  %> || Address
+  
+        </li>
+      <% end %>
+
+     
+    </div>
     </div>
   </div>
 </div>
 
-<button class="ui primary button">
-  <%=link_to "|add location|", new_trip_location_path(@trip)%>
-</button>
-<button class="ui button">
-  Discard
-</button>
+
+<script>
+/*
+  select the html elements you want
+  then assign them to a descriptive variable
+*/
+var descriptionTab = document.querySelector('.description-tab');
+var locationTab = document.querySelector('.location-tab');
+var descriptionSegment = document.querySelector('.description-segment');
+var locationSegment = document.querySelector('.location-segment');
+
+/*
+  function to remove classes from other tabs
+  and add it to the one clickeds
+*/
+var setToActive = function(e) {
+  var button = e.target;
+  // remove the active class from all other tabs here
+  locationTab.classList.remove('active');
+  descriptionTab.classList.remove('active');
+  descriptionSegment.classList.remove('hidden');
+  locationSegment.classList.remove('hidden');
+  // add the class to the one just clicked
+  if(e.target.classList.contains('description-tab')){
+    locationSegment.classList.add('hidden');
+  } else if(e.target.classList.contains('location-tab')){
+    descriptionSegment.classList.add('hidden');
+  }
+  button.classList.add('active')
+}
+
+/*
+  listen to the tabs "click" events,
+*/
+descriptionTab.addEventListener('click', setToActive);
+locationTab.addEventListener('click', setToActive);
+</script>
