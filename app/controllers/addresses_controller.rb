@@ -26,11 +26,17 @@ class AddressesController < ApplicationController
   end
 
   def edit
+    @address = Address.find(params[:id])
 
   end
 
   def update
-
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
+      redirect_to trip_location_path(@location.trip_id, @location) 
+    else 
+      render :edit
+    end 
   end
 
   def destroy 
