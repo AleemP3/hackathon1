@@ -5,28 +5,23 @@
 <hr />
 
 
-
-
-
-  <br/>
-  <br/>
-<div class="ui grid">
-<% @trips.each do |t| %>
-<div class="sixteen wide mobile eight wide tablet four wide computer column">
-  <div class="ui card"> 
-  <br/>
-  <br/>
+<div class="ui cards">
+ <% @trips.each do |t| %>
+  <div class="card">
     <div class="content">
-      <div class="header"> <%= link_to t.name , trip_path(t) %></div>
-      <hr />
+      <div class="header"><%= link_to t.name , trip_path(t) %></div>
       <div class="description">
-       <%= link_to t.description , trip_path(t) %>
+        <%= link_to t.description , trip_path(t) %>
       </div>
     </div>
-    <br/>
-    <br/>
-    
-     <% end %> 
   </div>
+   <% end %>
+</div>
+
+
+
+
+
+
 
  
