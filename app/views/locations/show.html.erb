@@ -1,17 +1,33 @@
 <h1> <%=@location.name%></h1>
-<%= link_to '|Back|', trip_locations_path %>
-<%= link_to '|Edit|', edit_trip_location_path(@trip, @location) %>
-<%= link_to '|Delete|', trip_location_path(@trip, @location), method: :delete %>
-<%= link_to '|New Addy|', new_location_address_path(@location) %>
-<hr />
+
+
+<button class="ui button">
+<%= link_to 'Delete', trip_location_path(@trip, @location), method: :delete %>
+</button>
+<% if @location.address %>
+<button class="ui button">
+<%= link_to "Edit", edit_trip_location_path(@trip, @location) %>
+</button>
+<% else %>
+<button class="ui green button">
+<%= link_to 'New Address', new_location_address_path(@location) %>
+</button>
+<% end %>
+<button class="ui button">
+<%= link_to 'Back',  trip_locations_path %>
+</button>
+
+
+
+
+
+<br />
 <% if @location.address %>
 <h4>Country: <%= @location.address.country %></h4>
 <ul>
   <li>State: <%= @location.address.state %></li>
   <li>City: <%= @location.address.city %></li>
   <li>Street: <%= @location.address.street %></li>
-  <%= link_to '|Delete|', location_address_path(@location, @location.address.id), method: :delete %>
-  <%= link_to '|Edit|', edit_location_address_path(@location, @location.address.id) %>
 </ul>
 <% else %>
 <%=  %> 

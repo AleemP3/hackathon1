@@ -1,9 +1,10 @@
-<%= link_to '|Back|', trips_path %>
 
 <h3> <%= @trip.name %>
 <hr />
 
-<button class="ui button">
+
+
+<button class="ui green button">
   <%=link_to "Add Location", new_trip_location_path(@trip)%>
 </button>
 
@@ -13,7 +14,9 @@
 <button class="ui button">
 <%= link_to 'Edit', edit_trip_path(@trip) %>
 </button>
-
+<button class="ui button">
+<%= link_to 'Back', trips_path(@trip) %>
+</button>
 
 <br/>
 <br/>
