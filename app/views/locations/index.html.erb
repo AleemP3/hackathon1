@@ -2,14 +2,17 @@
 
 <button class="ui green button">
 <%= link_to 'Add New Location', new_trip_location_path(@trip) %>
-
 </button >
 
 <button class="ui button">
 <%= link_to 'Back', trip_path(@trip) %>
 </button>
 <br />
+<br />
+
 
 <% @trip.locations.each do |t| %>
-<%= link_to t.name, trip_location_path(@trip, t) %>
+<li>
+    <%= link_to t.name, trip_location_path(@trip, t) %>
+</li>
 <% end %> 

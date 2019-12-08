@@ -39,8 +39,8 @@
     </div>
     <div class="location-segment ui segment hidden">
       <% @trip.locations.each do |l| %>
-        <li><%= l.name  %> || <%= link_to "Address", trip_location_path(@trip, l) %>
-  
+        <li>
+            <%= l.name  %> || <%= link_to "Address", trip_location_path(@trip, l) %>
         </li>
       <% end %>
 
